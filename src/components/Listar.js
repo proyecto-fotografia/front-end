@@ -8,6 +8,16 @@ import '../style/style.css';
 import { CDBCard, CDBCardBody, CDBDataTable, CDBContainer } from 'cdbreact';
 import MaterialTable from 'material-react-table';
 
+//jQuery libraries
+ 
+import 'jquery/dist/jquery.min.js';
+ 
+//Datatable Modules
+import "datatables.net-dt/js/dataTables.dataTables"
+import "datatables.net-dt/css/jquery.dataTables.min.css"
+import $ from 'jquery'; 
+
+
 export function Listar() {
 
     const [producto, setProducto] = useState([PhotoModel()]);
@@ -16,63 +26,22 @@ export function Listar() {
         getPhoto().then((data) => {
             setProducto(data);
             console.log(producto)
+            
         })
     }, []);
 
-
-    const prueba =()=>{
-        return{
-            columns:[{
-                label: 'Nombre',
-                field:'nombre',
-                sort: 'asc',
-                width: 200,
-            },{
-                label: 'Nombre Cientifico',
-                field:'NombreCientifico',
-                sort: 'asc',
-                width: 200,
-            },{
-                label: 'Descripcion',
-                field:'descripcion',
-                width: 200,
-            },{
-                label: 'Ruta',
-                field:'ruta',
-                sort: 'asc',
-                width: 200,
-            }
-        ],
-            rows:[...producto]
-        }
-    }
-
-    const columnas=[
-        {
-            title:'Nombre',
-            field:'nombre'
-
-        },
-        {
-            title: 'Nombre Cientifico',
-            field:'NombreCientifico',
-        },{
-            title: 'Descripcion',
-            field:'descripcion',
-
-        },{
-            title: 'Ruta',
-            field:'ruta',
-        }
-    ]
-
-
+    $(document).ready(function () {
+        setTimeout(function(){
+        $('#example').DataTable();
+         } ,1000);
+    });
+ 
     return (
         <React.Fragment>
             <br /><br />
 
             <div className='main'>
-                <table className="table">
+                <table className="table table-hover table-bordered" id='example'>
                     <thead>
                         <tr>
                             <th>Nombre</th>
@@ -110,29 +79,6 @@ export function Listar() {
             <br />
 
 
-            
-            <div className='main'>
-
-                <CDBContainer>
-                    <CDBCard>
-                        <CDBCardBody>
-                            <CDBDataTable
-                                striped
-                                bordered
-                                hover
-                                entriesOptions={[5, 20, 25]}
-                                entries={5}
-                                pagesAmount={4}
-                                data={prueba()}
-                                materialSearch={true}
-                                
-                                
-                            />
-                        </CDBCardBody>
-                    </CDBCard>
-                </CDBContainer>
-
-            </div>
 
             <br/>
             

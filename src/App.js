@@ -5,6 +5,7 @@ import { Editar } from './components/Editar';
 import { Navbar } from './components/Navbar';
 import { Listar } from './components/Listar';
 
+
 function App() {
   return (
     <Router>
@@ -12,7 +13,7 @@ function App() {
       <Routes>
      <Route exact path="/" element={<Listar></Listar>}></Route> 
      <Route exact path="/crear" element={<Crear></Crear>}></Route> 
-     <Route exact path="/editar" element={<Editar></Editar>}></Route> 
+     <Route exact path="/editar" element={<Editar></Editar>}></Route>
      </Routes>
     </Router>
 

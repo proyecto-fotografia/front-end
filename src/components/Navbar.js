@@ -16,6 +16,7 @@ export function Navbar() {
             <li className="nav-item">
             <Link className="nav-link active" to="/editar">Editar</Link>
             </li>
+
         </ul>
     </div>
   )
